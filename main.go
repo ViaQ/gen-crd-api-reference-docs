@@ -616,6 +616,9 @@ func typeDisplayName(t *types.Type, c generatorConfig, typePkgMap map[*types.Typ
 	}
 
 	if t.Kind == types.Slice {
+		if t.Elem.Kind == types.Pointer {
+			s = "*" + s
+		}
 		s = "[]" + s
 	}
 
